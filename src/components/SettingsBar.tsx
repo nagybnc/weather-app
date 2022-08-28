@@ -86,11 +86,11 @@ function SettingsBar({ userSettings: { lang, theme, units }, changeUserSettings 
                     items={[
                         {
                             id: Themes.light,
-                            value: <SunIcon theme={Themes.light} />,
+                            value: <SunIcon />,
                         },
                         {
                             id: Themes.dark,
-                            value: <MoonIcon theme={Themes.dark} />,
+                            value: <MoonIcon />,
                         },
                     ]}
                     selectedId={theme}

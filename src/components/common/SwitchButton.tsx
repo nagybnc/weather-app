@@ -6,7 +6,7 @@ export interface SwitchButtonItem {
 }
 
 export interface SwitchButtonProps {
-    items: SwitchButtonItem[];
+    items: Array<SwitchButtonItem>;
     onChange: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     selectedId: string;
     type: SwitchButtonTypes;
