@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { Error, ErrorHandler } from "./components/Error";
 import { useUserSettings } from "./hooks/useUserSettings";
 import { useWeather } from "./hooks/useWeather";
 
@@ -14,7 +16,13 @@ function App() {
     console.log(hourlyWeather);
     console.groupEnd();
 
-    return <h1 className="text-3xl bg-red-500 text-center">Weather app init</h1>;
+    return (
+        <h1 className="text-3xl bg-red-500 text-center">
+            <ErrorBoundary FallbackComponent={Error} onError={ErrorHandler}>
+                Weather app init
+            </ErrorBoundary>
+        </h1>
+    );
 }
 
 export default App;

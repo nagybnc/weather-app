@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useErrorHandler } from "react-error-boundary";
 import { FormattedCurrentApiResponse, FormattedForecast, SearchParams } from "../utils/store";
 import { fetchWeatherData, formatCurrentWeather, formatForecastWeather } from "../utils/util";
 
@@ -7,6 +8,7 @@ export const useWeather = (searchParams: SearchParams) => {
     const [currentWeather, setCurrentWeather] = useState<FormattedCurrentApiResponse>({} as FormattedCurrentApiResponse);
     const [hourlyWeather, setHourlyWeather] = useState<Array<FormattedForecast>>({} as Array<FormattedForecast>);
     const [dailyWeather, setDailyWeather] = useState<Array<FormattedForecast>>({} as Array<FormattedForecast>);
+    const handleError = useErrorHandler();
 
     useEffect(() => {
         const setWeatherData = async () => {
@@ -27,7 +29,7 @@ export const useWeather = (searchParams: SearchParams) => {
                 setHourlyWeather(formattedForecastWeather.hourly);
                 setDailyWeather(formattedForecastWeather.daily);
             } catch (error) {
-                console.log(error);
+                handleError(error);
             } finally {
                 setIsLoading(false);
             }
