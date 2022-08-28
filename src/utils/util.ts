@@ -2,7 +2,10 @@ import {
     CurrentApiResponse,
     FormattedCurrentApiResponse,
     FormattedForecast,
+    FormattedGroupApiResponseItem,
     FormattedOneCallApiResponse,
+    groupApiListItem,
+    groupApiResponse,
     OneCallApiDailyForecast,
     OneCallApiHourlyForecast,
     OneCallApiResponse,
@@ -82,4 +85,18 @@ export const formatForecastWeather = (data: OneCallApiResponse): FormattedOneCal
     );
 
     return { daily: formattedDaily, hourly: formattedHourly };
+};
+
+export const formatCurrentCities = ({ list }: groupApiResponse): Array<FormattedGroupApiResponseItem> => {
+    return list.map((listItem: groupApiListItem) => {
+        const { id, name, dt, weather, main } = listItem;
+
+        return {
+            dt,
+            id,
+            name,
+            temp: { day: main.temp, min: main.temp_min, max: main.temp_max },
+            weather,
+        };
+    });
 };
