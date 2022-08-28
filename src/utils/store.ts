@@ -73,3 +73,51 @@ export interface FormattedCurrentApiResponse {
     icon: string;
     speed: number;
 }
+
+export interface OneCallApiDailyForecast {
+    dt: number;
+    dew_point: number;
+    clouds: number;
+    humidity: number;
+    moonrise: number;
+    moonset: number;
+    pressure: number;
+    sunrise: number;
+    sunset: number;
+    weather: Array<WeatherInfo>;
+    wind_speed: number;
+    temp: { day: number; min: number; max: number };
+}
+
+export interface OneCallApiHourlyForecast {
+    dt: number;
+    clouds: number;
+    feels_like: number;
+    humidity: number;
+    pressure: number;
+    temp: number;
+    visibility: number;
+    weather: Array<WeatherInfo>;
+    wind_speed: number;
+}
+
+export interface OneCallApiResponse {
+    lat: number;
+    lon: number;
+    lang: string;
+    timezone: string;
+    timezone_offset: number;
+    daily: Array<OneCallApiDailyForecast>;
+    hourly: Array<OneCallApiHourlyForecast>;
+}
+export interface FormattedForecast {
+    id: number;
+    title: string;
+    temp: number | { day: number; min: number; max: number };
+    icon: string;
+}
+
+export interface FormattedOneCallApiResponse {
+    daily: Array<FormattedForecast>;
+    hourly: Array<FormattedForecast>;
+}

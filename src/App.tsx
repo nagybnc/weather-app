@@ -6,9 +6,13 @@ function App() {
     const { userSettings, changeUserSettings } = useUserSettings();
     const [query, setQuery] = useState({ q: "budapest" });
 
-    const { isLoading, currentWeather } = useWeather({ ...query, units: userSettings.units, lang: userSettings.lang });
+    const { isLoading, currentWeather, dailyWeather, hourlyWeather } = useWeather({ ...query, units: userSettings.units, lang: userSettings.lang });
     console.log(userSettings);
+    console.group("___WEATHER___");
     console.log(currentWeather);
+    console.log(dailyWeather);
+    console.log(hourlyWeather);
+    console.groupEnd();
 
     return <h1 className="text-3xl bg-red-500 text-center">Weather app init</h1>;
 }
