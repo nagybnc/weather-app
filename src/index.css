@@ -16,7 +16,7 @@
     --text-color-secondary: #99a3cb;
   }
   
-  .content-wrapper div {
+  .content-wrapper > * {
    transition: background-color 1s ease;
   }
 
