@@ -1,3 +1,45 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.theme-light {
+    --bg-background-primary: #f5f7fb;
+    --bg-background-secondary: #bcc2db;
+    --text-color-primary: #2f3653;
+    --text-color-secondary: #99a3cb;
+  }
+  .theme-dark {
+    --bg-background-primary: #151515;
+    --bg-background-secondary: #302f2f;
+    --text-color-primary: white;
+    --text-color-secondary: #99a3cb;
+  }
+  
+  .content-wrapper div {
+   transition: background-color 1s ease;
+  }
+
+  .loader {
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+  }
+  
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
