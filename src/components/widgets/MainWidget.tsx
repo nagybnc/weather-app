@@ -31,7 +31,7 @@ function MainWidget({ userSettings, weatherQuery }: MainWidgetProps) {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="lg:mt-4 lg:mr-4 lg:w-3/4">
+            <div className="lg:mt-4 lg:mr-4 lg:w-3/4 flex flex-col justify-between">
                 <TimeAndLocation weather={currentWeather} />
                 <TemperatureAndDetails weather={currentWeather} unit={unit} />
 
