@@ -11,5 +11,6 @@
     "high": "High",
     "low": "Low",
     "pressure": "Pressure",
-    "hourly_forecast": "hourly forecast"
+    "hourly_forecast": "hourly forecast",
+    "daily_forecast": "daily forecast"
 }

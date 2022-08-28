@@ -11,5 +11,6 @@
     "high": "Hoch",
     "low": "Niedrig",
     "pressure": "Druck",
-    "hourly_forecast": "Stündliche vorhersage"
+    "hourly_forecast": "Stündliche vorhersage",
+    "daily_forecast": "Tägliche vorhersage"
 }
