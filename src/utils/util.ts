@@ -7,7 +7,7 @@ import {
     OneCallApiHourlyForecast,
     OneCallApiResponse,
     SearchParams,
-} from "./store";
+} from "./interfaces";
 
 export const fetchWeatherData = (infoType: string, searchParams: SearchParams) => {
     const url = new URL(import.meta.env.VITE_BASE_URL + "/" + infoType);
@@ -21,6 +21,10 @@ export const getWeatherIcon = (code: string) => `http://openweathermap.org/img/w
 export const timeFormatter = (d: number, timezone: number, local?: string) => {
     return new Date((d + timezone) * 1000).toLocaleTimeString(local, { timeZone: "UTC" });
 };
+
+export const getLocalDate = (date: Date, locale: string) => date.toLocaleDateString(locale, { weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+
+export const getLocalTime = (date: Date, locale: string) => date.toLocaleTimeString(locale, { timeZone: "UTC" });
 
 export const formatCurrentWeather = (data: CurrentApiResponse): FormattedCurrentApiResponse => {
     const {

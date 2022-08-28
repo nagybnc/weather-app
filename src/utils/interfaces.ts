@@ -1,22 +1,9 @@
-export enum ThemeType {
-    light = "light",
-    dark = "dark",
-}
-
-export enum UnitsType {
-    metric = "metric",
-    imperial = "imperial",
-}
-
-export enum LangType {
-    en = "en",
-    de = "de",
-}
+import { Languages, Themes, Units } from "./types";
 
 export interface UserSettings {
-    lang: LangType;
-    theme: ThemeType;
-    units: UnitsType;
+    lang: Languages;
+    theme: Themes;
+    units: Units;
 }
 
 export interface SearchParams {
@@ -24,8 +11,8 @@ export interface SearchParams {
     lat?: number;
     lon?: number;
     exclude?: string;
-    units?: UnitsType;
-    lang?: LangType;
+    units?: Units;
+    lang?: Languages;
 }
 
 export interface WeatherInfo {

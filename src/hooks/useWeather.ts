@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useErrorHandler } from "react-error-boundary";
-import { FormattedCurrentApiResponse, FormattedForecast, SearchParams } from "../utils/store";
+import { FormattedCurrentApiResponse, FormattedForecast, SearchParams } from "../utils/interfaces";
 import { fetchWeatherData, formatCurrentWeather, formatForecastWeather } from "../utils/util";
 
 export const useWeather = (searchParams: SearchParams) => {
