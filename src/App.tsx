@@ -3,6 +3,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useTranslation } from "react-i18next";
 import { Error, ErrorHandler } from "./components/Error";
 import Header from "./components/Header";
+import HourlyForecast from "./components/HourlyForecast";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation";
 import { useUserSettings } from "./hooks/useUserSettings";
@@ -40,6 +41,9 @@ function App() {
                             <div className="lg: mt-4 lg:mr-4 lg:w-3/4">
                                 <TimeAndLocation weather={currentWeather} />
                                 <TemperatureAndDetails weather={currentWeather} unit={unit} />
+                            </div>
+                            <div className="lg:w-1/4">
+                                <HourlyForecast id="hourly-forecast" title={t("hourly_forecast")} items={hourlyWeather} unit={unit} />
                             </div>
                         </div>
                     )}

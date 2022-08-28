@@ -10,5 +10,6 @@
     "set": "Set",
     "high": "High",
     "low": "Low",
-    "pressure": "Pressure"
+    "pressure": "Pressure",
+    "hourly_forecast": "hourly forecast"
 }

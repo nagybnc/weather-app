@@ -10,5 +10,6 @@
     "set": "Untergang",
     "high": "Hoch",
     "low": "Niedrig",
-    "pressure": "Druck"
+    "pressure": "Druck",
+    "hourly_forecast": "Stündliche vorhersage"
 }
