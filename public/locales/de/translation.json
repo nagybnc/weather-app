@@ -1,5 +1,14 @@
 {
     "loading": "Wird geladen...",
     "loading_description": "Dies kann einige Sekunden dauern, bitte schließen Sie diese Seite nicht.",
-    "search_placeholder": "suche nach Städten..."
+    "search_placeholder": "suche nach Städten...",
+    "local_time": "Ortszeit",
+    "real_feel": "Echtes gefühl",
+    "humidity": "Feuchtigkeit",
+    "wind": "Wind",
+    "rise": "Aufstieg",
+    "set": "Untergang",
+    "high": "Hoch",
+    "low": "Niedrig",
+    "pressure": "Druck"
 }

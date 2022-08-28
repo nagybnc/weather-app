@@ -16,6 +16,12 @@ export const fetchWeatherData = (infoType: string, searchParams: SearchParams) =
     return fetch(url).then((res) => res.json());
 };
 
+export const getWeatherIcon = (code: string) => `http://openweathermap.org/img/wn/${code}@2x.png`;
+
+export const timeFormatter = (d: number, timezone: number, local?: string) => {
+    return new Date((d + timezone) * 1000).toLocaleTimeString(local, { timeZone: "UTC" });
+};
+
 export const formatCurrentWeather = (data: CurrentApiResponse): FormattedCurrentApiResponse => {
     const {
         coord: { lat, lon },

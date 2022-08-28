@@ -3,9 +3,11 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useTranslation } from "react-i18next";
 import { Error, ErrorHandler } from "./components/Error";
 import Header from "./components/Header";
+import TemperatureAndDetails from "./components/TemperatureAndDetails";
+import TimeAndLocation from "./components/TimeAndLocation";
 import { useUserSettings } from "./hooks/useUserSettings";
 import { useWeather } from "./hooks/useWeather";
-import { ThemeType } from "./utils/store";
+import { ThemeType, UnitsType } from "./utils/store";
 
 function App() {
     const { t } = useTranslation();
@@ -20,6 +22,8 @@ function App() {
     console.log(hourlyWeather);
     console.groupEnd();
 
+    const unit = userSettings.units === UnitsType.metric ? " °C" : " °F";
+
     return (
         <div id="wrapper" className={`${userSettings.theme === ThemeType.light ? "theme-light" : "theme-dark"} content-wrapper`}>
             <div className={`shadow-gray-400 mx-auto h-fit max-w-screen-lg bg-background-primary py-5 px-4 shadow-xl sm:my-4`}>
@@ -32,7 +36,12 @@ function App() {
                             <p className="w-2/3 text-center text-colors-primary">{t("loading_description")}</p>
                         </div>
                     ) : (
-                        <div className="text-colors-primary">TODO</div>
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="lg: mt-4 lg:mr-4 lg:w-3/4">
+                                <TimeAndLocation weather={currentWeather} />
+                                <TemperatureAndDetails weather={currentWeather} unit={unit} />
+                            </div>
+                        </div>
                     )}
                 </ErrorBoundary>
             </div>

@@ -1,5 +1,14 @@
 {
     "loading": "Loading...",
     "loading_description": "This may take a few seconds, please don't close this page.",
-    "search_placeholder": "Search for city..."
+    "search_placeholder": "Search for city...",
+    "local_time": "Local time",
+    "real_feel": "Real feel",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "rise": "Rise",
+    "set": "Set",
+    "high": "High",
+    "low": "Low",
+    "pressure": "Pressure"
 }
