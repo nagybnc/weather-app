@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { UserSettings } from "../utils/interfaces";
 import { Languages, Themes, Units } from "../utils/types";
 
-export const defaultUserSettings: UserSettings = {
+const defaultUserSettings: UserSettings = {
     lang: Languages.en,
     theme: Themes.light,
     units: Units.metric,

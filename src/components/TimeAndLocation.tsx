@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { FormattedCurrentApiResponse } from "../utils/interfaces";
+import { getLocalDate, getLocalTime } from "../utils/util";
+import { Text3XL, TextXL } from "./styled/typography";
 
 interface TimeAndLocationProps {
     weather: FormattedCurrentApiResponse;
@@ -13,16 +15,16 @@ function TimeAndLocation({ weather: { dt, timezone, name, country } }: TimeAndLo
     return (
         <>
             <div className="my-6 flex items-center justify-center">
-                <p className="text-center text-xl font-extralight text-colors-primary">
+                <TextXL light>
                     <>
-                        <span>{date.toLocaleDateString(i18n.resolvedLanguage, { weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</span>
+                        <span>{getLocalDate(date, i18n.resolvedLanguage)}</span>
                         <span> | {t("local_time")}: </span>
-                        <span>{date.toLocaleTimeString(i18n.resolvedLanguage, { timeZone: "UTC" })}</span>
+                        <span>{getLocalTime(date, i18n.resolvedLanguage)}</span>
                     </>
-                </p>
+                </TextXL>
             </div>
             <div className="my-3 flex items-center justify-center">
-                <p id="location" className="text-3xl font-medium text-colors-primary">{`${name}${country ? `, ${country}` : ""}`}</p>
+                <Text3XL>{`${name}${country ? `, ${country}` : ""}`}</Text3XL>
             </div>
         </>
     );
