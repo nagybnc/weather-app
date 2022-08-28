@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { FormattedCurrentApiResponse } from "../utils/store";
+import { FormattedCurrentApiResponse } from "../utils/interfaces";
 
 interface TimeAndLocationProps {
     weather: FormattedCurrentApiResponse;

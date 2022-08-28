@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UserSettings } from "../utils/store";
+import { UserSettings } from "../utils/interfaces";
 import { Languages, Themes, Units } from "../utils/types";
 
 export const defaultUserSettings: UserSettings = {

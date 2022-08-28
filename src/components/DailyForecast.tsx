@@ -1,4 +1,4 @@
-import { FormattedForecast } from "../utils/store";
+import { FormattedForecast } from "../utils/interfaces";
 import { getWeatherIcon } from "../utils/util";
 
 interface DailyForecastProps {

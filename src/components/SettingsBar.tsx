@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { UserSettings } from "../utils/store";
+import { UserSettings } from "../utils/interfaces";
 import SwitchButton from "./common/SwitchButton";
 import { Languages, SwitchButtonTypes, Themes, Units } from "../utils/types";
 import { MoonIcon, SunIcon } from "./styled/icons";

@@ -1,6 +1,6 @@
 import { ArrowDownTrayIcon, ArrowTrendingDownIcon, ArrowTrendingUpIcon, CloudIcon, FlagIcon, InformationCircleIcon, MapPinIcon, MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "react-i18next";
-import { FormattedCurrentApiResponse } from "../utils/store";
+import { FormattedCurrentApiResponse } from "../utils/interfaces";
 import { getWeatherIcon, timeFormatter } from "../utils/util";
 
 interface TemperatureAndDetailsProps {

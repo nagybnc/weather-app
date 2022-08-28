@@ -7,7 +7,7 @@ import {
     OneCallApiHourlyForecast,
     OneCallApiResponse,
     SearchParams,
-} from "./store";
+} from "./interfaces";
 
 export const fetchWeatherData = (infoType: string, searchParams: SearchParams) => {
     const url = new URL(import.meta.env.VITE_BASE_URL + "/" + infoType);
