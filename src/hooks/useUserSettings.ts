@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { LangType, ThemeType, UnitsType, UserSettings } from "../utils/store";
+import { UserSettings } from "../utils/store";
+import { Languages, Themes, Units } from "../utils/types";
 
 export const defaultUserSettings: UserSettings = {
-    lang: LangType.en,
-    theme: ThemeType.light,
-    units: UnitsType.metric,
+    lang: Languages.en,
+    theme: Themes.light,
+    units: Units.metric,
 };
 
 export const useUserSettings = () => {

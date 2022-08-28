@@ -2,14 +2,15 @@ import { useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useTranslation } from "react-i18next";
 import { Error, ErrorHandler } from "./components/Error";
-import Header from "./components/Header";
+import LocationSelector from "./components/LocationSelector";
+import SettingsBar from "./components/SettingsBar";
 import DailyForecast from "./components/DailyForecast";
 import HourlyForecast from "./components/HourlyForecast";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation";
 import { useUserSettings } from "./hooks/useUserSettings";
 import { useWeather } from "./hooks/useWeather";
-import { ThemeType, UnitsType } from "./utils/store";
+import { Themes, Units } from "./utils/types";
 
 function App() {
     const { t } = useTranslation();
@@ -18,13 +19,18 @@ function App() {
 
     const { isLoading, currentWeather, dailyWeather, hourlyWeather } = useWeather({ ...query, units: userSettings.units, lang: userSettings.lang });
 
-    const unit = userSettings.units === UnitsType.metric ? " °C" : " °F";
+    const unit = userSettings.units === Units.metric ? " °C" : " °F";
 
     return (
-        <div id="wrapper" className={`${userSettings.theme === ThemeType.light ? "theme-light" : "theme-dark"} content-wrapper`}>
+        <div id="wrapper" className={`${userSettings.theme === Themes.light ? "theme-light" : "theme-dark"} content-wrapper`}>
             <div className={`shadow-gray-400 mx-auto h-fit max-w-screen-lg bg-background-primary py-5 px-4 shadow-xl sm:my-4`}>
                 <ErrorBoundary FallbackComponent={Error} onError={ErrorHandler}>
-                    <Header setQuery={setQuery} userSettings={userSettings} changeUserSettings={changeUserSettings} />
+                    <div className="my-4 flex flex-col items-center">
+                        <SettingsBar userSettings={userSettings} changeUserSettings={changeUserSettings} />
+                        <div className="flex w-3/4 flex-row items-center justify-center space-x-4">
+                            <LocationSelector setQuery={setQuery} />
+                        </div>
+                    </div>
                     {isLoading ? (
                         <div className="flex w-full flex-col items-center justify-center overflow-hidden opacity-75">
                             <div className="loader mb-4 h-12 w-12 rounded-full border-4 border-t-4 border-colors-primary border-t-colors-secondary ease-linear"></div>
