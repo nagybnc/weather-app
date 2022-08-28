@@ -10,8 +10,8 @@ import {
 } from "./store";
 
 export const fetchWeatherData = (infoType: string, searchParams: SearchParams) => {
-    const url = new URL(import.meta.env.VITE_BASE_URL + "/" + infoType);
-    url.search = new URLSearchParams({ ...searchParams, appid: import.meta.env.VITE_API_KEY }).toString();
+    const url = new URL(process.env.VITE_BASE_URL + "/" + infoType);
+    url.search = new URLSearchParams({ ...searchParams, appid: process.env.VITE_API_KEY } as any).toString();
 
     return fetch(url).then((res) => res.json());
 };
