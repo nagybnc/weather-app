@@ -8,6 +8,7 @@ export interface UserSettings {
 
 export interface SearchParams {
     q?: string;
+    id?: string;
     lat?: number;
     lon?: number;
     exclude?: string;
