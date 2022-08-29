@@ -23,7 +23,7 @@ function App() {
                         </div>
                     </div>
                     <MainWidget userSettings={userSettings} weatherQuery={query} />
-                    <SecondaryWidget userSettings={userSettings} />
+                    <SecondaryWidget userSettings={userSettings} changeUserSettings={changeUserSettings} />
                 </ErrorBoundary>
             </div>
         </div>

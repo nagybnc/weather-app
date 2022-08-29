@@ -6,6 +6,7 @@ const defaultUserSettings: UserSettings = {
     lang: Languages.en,
     theme: Themes.light,
     units: Units.metric,
+    sliderInterval: 3,
 };
 
 export const useUserSettings = () => {

@@ -13,6 +13,8 @@ export enum Units {
     imperial = "imperial",
 }
 
+export type SliderInterval = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+
 export enum SwitchButtonTypes {
     lang = "lang",
     theme = "theme",
