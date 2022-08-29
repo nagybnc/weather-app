@@ -8,6 +8,7 @@ export interface UserSettings {
 
 export interface SearchParams {
     q?: string;
+    id?: string;
     lat?: number;
     lon?: number;
     exclude?: string;
@@ -107,4 +108,24 @@ export interface FormattedForecast {
 export interface FormattedOneCallApiResponse {
     daily: Array<FormattedForecast>;
     hourly: Array<FormattedForecast>;
+}
+
+export interface groupApiListItem {
+    dt: number;
+    id: number;
+    name: string;
+    weather: Array<WeatherInfo>;
+    main: MainInfo;
+}
+export interface groupApiResponse {
+    cnt: number;
+    list: Array<groupApiListItem>;
+}
+
+export interface FormattedGroupApiResponseItem {
+    dt: number;
+    id: number;
+    name: string;
+    temp: { day: number; min: number; max: number };
+    weather: Array<WeatherInfo>;
 }

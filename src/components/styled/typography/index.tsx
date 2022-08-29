@@ -1,4 +1,6 @@
-export const BodyText = ({ children, bold = false }: { children: string | React.ReactElement; bold?: boolean }) => <p className={`font-${bold ? "medium" : "normal"}`}>{children}</p>;
+export const BodyText = ({ children, bold = false }: { children: string | React.ReactElement; bold?: boolean }) => (
+    <p className={`font-${bold ? "medium" : "normal"} text-colors-primary`}>{children}</p>
+);
 
 export const BodyTextSmall = ({ children, bold = false }: { children: string | React.ReactElement; bold?: boolean }) => <p className={`text-sm font-${bold ? "medium" : "light"}`}>{children}</p>;
 

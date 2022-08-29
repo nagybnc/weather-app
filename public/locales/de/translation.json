@@ -12,5 +12,7 @@
     "low": "Niedrig",
     "pressure": "Druck",
     "hourly_forecast": "Stündliche vorhersage",
-    "daily_forecast": "Tägliche vorhersage"
+    "daily_forecast": "Tägliche vorhersage",
+    "popular_destinations": "beliebte ausflugsziele",
+    "slider_text": "Verwenden Sie den Schieberegler, um das Intervall zwischen den Zielfenstern zu ändern. Aktuelles Intervall ist: "
 }

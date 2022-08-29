@@ -12,5 +12,7 @@
     "low": "Low",
     "pressure": "Pressure",
     "hourly_forecast": "hourly forecast",
-    "daily_forecast": "daily forecast"
+    "daily_forecast": "daily forecast",
+    "popular_destinations": "popular destinations",
+    "slider_text": "Use the slider to change the interval between destination panels. Current interval is: "
 }
