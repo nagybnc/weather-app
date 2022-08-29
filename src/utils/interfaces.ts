@@ -1,9 +1,10 @@
-import { Languages, Themes, Units } from "./types";
+import { Languages, SliderInterval, Themes, Units } from "./types";
 
 export interface UserSettings {
     lang: Languages;
     theme: Themes;
     units: Units;
+    sliderInterval: SliderInterval;
 }
 
 export interface SearchParams {

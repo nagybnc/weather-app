@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { fetchWeatherData, formatCurrentCities } from "../../utils/util";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,6 +15,7 @@ import { BodyText, CapitalText, Text3XL, Text5XL } from "../styled/typography";
 
 interface SecondaryWidgetProps {
     userSettings: UserSettings;
+    changeUserSettings: ({}) => void;
 }
 
 const CITIES = [
@@ -29,11 +29,20 @@ const CITIES = [
 
 const cityIds = CITIES.map((city) => city.id);
 
-function SecondaryWidget({ userSettings }: SecondaryWidgetProps) {
+function SecondaryWidget({ userSettings: { units, lang, sliderInterval }, changeUserSettings }: SecondaryWidgetProps) {
     const { t } = useTranslation();
-    const [sliderInterval, setSliderInterval] = useState(3);
-    const { isLoading, cities } = useCities({ id: cityIds.join(","), units: userSettings.units, lang: userSettings.lang });
-    const unit = userSettings.units === Units.metric ? " °C" : " °F";
+    const { isLoading, cities } = useCities({ id: cityIds.join(","), units, lang });
+    const unit = units === Units.metric ? " °C" : " °F";
+
+    const handleIntervalChange = useCallback(
+        (e: ChangeEvent<HTMLInputElement>) => {
+            const selectedInterval = Number(e.currentTarget.value);
+            if (sliderInterval !== selectedInterval) {
+                changeUserSettings({ sliderInterval: selectedInterval });
+            }
+        },
+        [sliderInterval]
+    );
 
     if (isLoading) {
         return (
@@ -63,7 +72,7 @@ function SecondaryWidget({ userSettings }: SecondaryWidgetProps) {
                 min={1}
                 max={10}
                 value={sliderInterval}
-                onChange={(e) => setSliderInterval(Number(e.target.value))}
+                onChange={handleIntervalChange}
                 className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-background-secondary accent-background-secondary"
             />
 
