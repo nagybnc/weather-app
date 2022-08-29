@@ -17,8 +17,23 @@
   }
   
   .content-wrapper > * {
-   transition: background-color 1s ease;
-  }
+    transition: background-color 1s ease;
+   }
+ 
+ .swiper-button-prev {
+   color: var(--text-color-primary);
+ }
+ 
+ .swiper-button-next {
+     color: var(--text-color-primary);
+ }
+ .swiper-pagination-bullet {
+   background-color: var(--text-color-primary);
+ }
+ .swiper-pagination-bullet-active {
+   background-color: var(--text-color-secondary);
+ }
+ 
 
   .loader {
     -webkit-animation: spinner 1.5s linear infinite;

@@ -6,6 +6,7 @@ import SettingsBar from "./components/SettingsBar";
 import { useUserSettings } from "./hooks/useUserSettings";
 import { Themes } from "./utils/types";
 import MainWidget from "./components/widgets/MainWidget";
+import SecondaryWidget from "./components/widgets/SecondaryWidget";
 
 function App() {
     const { userSettings, changeUserSettings } = useUserSettings();
@@ -22,6 +23,7 @@ function App() {
                         </div>
                     </div>
                     <MainWidget userSettings={userSettings} weatherQuery={query} />
+                    <SecondaryWidget userSettings={userSettings} />
                 </ErrorBoundary>
             </div>
         </div>

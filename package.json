@@ -19,7 +19,8 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-error-boundary": "^3.1.4",
-        "react-i18next": "^11.18.5"
+        "react-i18next": "^11.18.5",
+        "swiper": "^8.3.2"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.18.10",
