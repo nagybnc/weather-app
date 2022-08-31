@@ -6,16 +6,21 @@ import { getWeatherIcon, timeFormatter } from "../utils/util";
 
 interface TemperatureAndDetailsProps {
     weather: FormattedCurrentApiResponse;
-    unit: string;
+    tempUnit: string;
+    speedUnit: string;
 }
 
-function TemperatureAndDetails({ weather: { details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, pressure, feels_like, timezone }, unit }: TemperatureAndDetailsProps) {
+function TemperatureAndDetails({
+    weather: { details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, pressure, feels_like, timezone },
+    tempUnit,
+    speedUnit,
+}: TemperatureAndDetailsProps) {
     const { t, i18n } = useTranslation();
 
     return (
         <>
             <div className="flex items-center justify-center py-6 text-colors-primary">
-                <Text5XL>{`${temp.toFixed() + unit}`}</Text5XL>
+                <Text5XL>{`${temp.toFixed() + tempUnit}`}</Text5XL>
             </div>
             <div className="flex flex-col items-center justify-around gap-2 py-3 text-colors-primary md:flex-row">
                 <div className="flex flex-col items-start space-y-2">
@@ -34,12 +39,12 @@ function TemperatureAndDetails({ weather: { details, icon, temp, temp_min, temp_
                     <div className="flex items-center gap-1">
                         <ArrowTrendingUpIcon className="h-4 w-4" />
                         <BodyTextSmall>{`${t("high")}:`}</BodyTextSmall>
-                        <BodyTextSmall bold>{`${temp_max.toFixed() + unit}`}</BodyTextSmall>
+                        <BodyTextSmall bold>{`${temp_max.toFixed() + tempUnit}`}</BodyTextSmall>
                     </div>
                     <div className="flex items-center gap-1">
                         <ArrowTrendingDownIcon className="h-4 w-4" />
                         <BodyTextSmall>{`${t("low")}:`}</BodyTextSmall>
-                        <BodyTextSmall bold>{`${temp_min.toFixed() + unit}`}</BodyTextSmall>
+                        <BodyTextSmall bold>{`${temp_min.toFixed() + tempUnit}`}</BodyTextSmall>
                     </div>
                 </div>
                 <div className="flex flex-col items-center justify-center">
@@ -50,7 +55,7 @@ function TemperatureAndDetails({ weather: { details, icon, temp, temp_min, temp_
                     <div className="flex items-center gap-1">
                         <InformationCircleIcon className="h-4 w-4 " />
                         <BodyTextSmall>{`${t("real_feel")}:`}</BodyTextSmall>
-                        <BodyTextSmall bold>{`${feels_like.toFixed() + unit}`}</BodyTextSmall>
+                        <BodyTextSmall bold>{`${feels_like.toFixed() + tempUnit}`}</BodyTextSmall>
                     </div>
 
                     <div className="flex items-center gap-1">
@@ -62,7 +67,7 @@ function TemperatureAndDetails({ weather: { details, icon, temp, temp_min, temp_
                     <div className="flex items-center gap-1">
                         <FlagIcon className="h-4 w-4 " />
                         <BodyTextSmall>{`${t("wind")}:`}</BodyTextSmall>
-                        <BodyTextSmall bold>{`${speed.toFixed()} km/h`}</BodyTextSmall>
+                        <BodyTextSmall bold>{`${speed.toFixed() + speedUnit}`}</BodyTextSmall>
                     </div>
                     <div className="flex items-center gap-1">
                         <ArrowDownTrayIcon className="h-4 w-4 " />
