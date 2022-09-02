@@ -17,7 +17,9 @@ function MainWidget({ userSettings, weatherQuery }: MainWidgetProps) {
 
     const { isLoading, currentWeather, hourlyWeather, dailyWeather } = useWeather({ ...weatherQuery, units: userSettings.units, lang: userSettings.lang });
 
-    const unit = userSettings.units === Units.metric ? " °C" : " °F";
+    const tempUnit = userSettings.units === Units.metric ? " °C" : " °F";
+
+    const speedUnit = userSettings.units === Units.metric ? " m/s" : " mph";
 
     if (isLoading) {
         return (
@@ -33,12 +35,12 @@ function MainWidget({ userSettings, weatherQuery }: MainWidgetProps) {
         <div className="flex flex-col lg:flex-row">
             <div className="lg:mt-4 lg:mr-4 lg:w-3/4 flex flex-col justify-between">
                 <TimeAndLocation weather={currentWeather} />
-                <TemperatureAndDetails weather={currentWeather} unit={unit} />
+                <TemperatureAndDetails weather={currentWeather} tempUnit={tempUnit} speedUnit={speedUnit} />
 
-                <DailyForecast id="daily-forecast" title={t("daily_forecast")} items={dailyWeather} unit={unit} />
+                <DailyForecast id="daily-forecast" title={t("daily_forecast")} items={dailyWeather} tempUnit={tempUnit} />
             </div>
             <div className="lg:w-1/4">
-                <HourlyForecast id="hourly-forecast" title={t("hourly_forecast")} items={hourlyWeather} unit={unit} />
+                <HourlyForecast id="hourly-forecast" title={t("hourly_forecast")} items={hourlyWeather} tempUnit={tempUnit} />
             </div>
         </div>
     );

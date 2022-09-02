@@ -6,10 +6,10 @@ interface DailyForecastProps {
     id: string;
     title: string;
     items: Array<FormattedForecast>;
-    unit: string;
+    tempUnit: string;
 }
 
-function DailyForecast({ id, title, items, unit }: DailyForecastProps) {
+function DailyForecast({ id, title, items, tempUnit }: DailyForecastProps) {
     return (
         <>
             <div className="mt-6 flex items-center justify-start">
@@ -23,7 +23,7 @@ function DailyForecast({ id, title, items, unit }: DailyForecastProps) {
                         <div key={item.id} className="flex flex-grow flex-col items-center justify-between rounded-md bg-background-secondary py-2">
                             <BodyTextSmall bold>{item.title}</BodyTextSmall>
                             <img src={getWeatherIcon(item.icon)} alt="" className="my-1 w-12" />
-                            <BodyText>{`${temp + unit}`}</BodyText>
+                            <BodyText>{`${temp + tempUnit}`}</BodyText>
                         </div>
                     );
                 })}

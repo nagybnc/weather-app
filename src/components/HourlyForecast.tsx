@@ -6,10 +6,10 @@ interface HourlyForecastProps {
     id: string;
     title: string;
     items: Array<FormattedForecast>;
-    unit: string;
+    tempUnit: string;
 }
 
-function HourlyForecast({ id, title, items, unit }: HourlyForecastProps) {
+function HourlyForecast({ id, title, items, tempUnit }: HourlyForecastProps) {
     return (
         <div>
             <div className="mt-6 flex items-center justify-start">
@@ -23,7 +23,7 @@ function HourlyForecast({ id, title, items, unit }: HourlyForecastProps) {
                         <div key={item.id} className="flex flex-grow flex-row items-center justify-around rounded-md bg-background-secondary p-2 lg:p-0">
                             <BodyTextSmall bold>{item.title}</BodyTextSmall>
                             <img src={getWeatherIcon(item.icon)} alt="" className="w-10" />
-                            <BodyText>{`${typeof item.temp === "number" && item.temp.toFixed() + unit}`}</BodyText>
+                            <BodyText>{`${typeof item.temp === "number" && item.temp.toFixed() + tempUnit}`}</BodyText>
                         </div>
                     );
                 })}
